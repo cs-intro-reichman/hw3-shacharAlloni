@@ -1,7 +1,7 @@
 // Computes the periodical payment necessary to pay a given loan.
 public class LoanCalc {
 	
-	static double epsilon = 0.01;  // Approximation accuracy
+	static double epsilon = 0.001;  // Approximation accuracy
 	static int iterationCounter;    // Number of iterations 
 	
 	// Gets the loan data and computes the periodical payment.
@@ -65,17 +65,15 @@ public class LoanCalc {
 		double lowLim = loan / n;
 		double mid = (highLim + lowLim) / 2;
 		double payment = endBalance(loan, rate, n, mid);
-
-		while (!((payment > 0) && (payment < epsilon)) || ((payment < 0) && (payment > -epsilon))) {
-			if (payment < epsilon) {
-
+		//!((payment > 0) && (payment < epsilon)) || ((payment < 0) && (payment > -epsilon))
+		while ((highLim - lowLim) > epsilon) {
+			if (payment < 0) {
 				highLim = mid;
 				mid = (mid + lowLim) / 2;
 			}
 			else {
 				lowLim = mid;
 				mid = (mid + highLim) / 2;
-
 			}
 			iterationCounter++;
 			payment = endBalance(loan, rate, n, mid);
