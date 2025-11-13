@@ -1,6 +1,6 @@
 /** Functions for checking if a given string is an anagram. */
 public class Anagram {
-	static String abc = "abcdefghijklmnopqrstuvwxyz1234567890 ";
+	static String abc = "abcdefghijklmnopqrstuvwxyz1234567890";
 	public static void main(String args[]) {
 		// Tests the isAnagram function.
 		System.out.println(isAnagram("silent","listen"));  // true
@@ -37,7 +37,7 @@ public class Anagram {
 
 			if (currentIndex != -1) {
 				//System.out.println(Character.toString(str1.charAt(i)));
-				str2 = str2.replaceFirst(Character.toString(str1.charAt(i)), "*");
+				str2 = str2.replaceFirst(Character.toString(str1.charAt(i)), " ");
 				//System.out.println(str2);
 				str2 = preProcess(str2);
 				//System.out.println(str2);
