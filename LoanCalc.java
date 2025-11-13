@@ -72,12 +72,13 @@ public class LoanCalc {
 		while ((highLim - lowLim) > epsilon) {
 			if (payment < 0) {
 				highLim = mid;
-				mid = (mid + lowLim) / 2;
+				//mid = (mid + lowLim) / 2;
 			}
 			else {
 				lowLim = mid;
-				mid = (mid + highLim) / 2;
+				//mid = (mid + highLim) / 2;
 			}
+			mid = (highLim + lowLim) / 2;
 			iterationCounter++;
 			payment = endBalance(loan, rate, n, mid);
 		}
